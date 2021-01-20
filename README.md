@@ -17,7 +17,7 @@
   
 ### Association  
 - has_many :product_listing_functions  
-- has_one :buyer_history
+- has_many :buyer_history
 
 ## product_listing_function  
 
@@ -70,4 +70,6 @@
   
   
 ### Association  
+- belongs_to :user  
+- belongs_to :product_listing_function  
 - has_one :product_purchase_function  
