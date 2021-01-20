@@ -20,17 +20,18 @@
 
 
 
-| product listing function        |  
-| ---                             |  
-| image (ActiveStorageで実装)      |  
-| name (string型 NOT NULL)        |  
-| description (string型 NOT NULL) |  
-| category_id (integer型)         |  
-| condition_id (integer型)        |  
-| charges_id (integer型)          |  
-| area_id (integer型)             |  
-| ship_id (integer型)             |  
-| price (integer型 NOT NULL)      |  
+| product listing function                 |  
+| ---                                      |  
+| image (ActiveStorageで実装)               |  
+| name (string型 NOT NULL)                 |  
+| description (text型 NOT NULL)            |  
+| category_id (integer型 NOT NULL)         |  
+| condition_id (integer型 NOT NULL)        |  
+| charges_id (integer型 NOT NULL)          |  
+| area_id (integer型 NOT NULL)             |  
+| ship_id (integer型 NOT NULL              |  
+| price (integer型 NOT NULL)               |  
+| user_id (integer型 NOT NULL)             |  
 
 
 
@@ -48,6 +49,7 @@
 | address (string型 NOT NULL)            |  
 | building_name (string型)               |  
 | phone_number (string型 NOT NULL)       |  
+| user_id (integer型 NOT NULL)           |  
 
   
   
@@ -55,3 +57,16 @@
 ### Association  
 - belongs_to :user  
 - has_many :product listing functions  
+- has_one Buyer_history  
+  
+
+| buyer_history                          |  
+|---                                     |  
+|  user_id(integer型 NOT NULL)           |  
+| product_id(integer型 NOT NULL)         |  
+  
+  
+  
+### Association  
+- belongs_to :user
+- belongs_to :product purchase function  
