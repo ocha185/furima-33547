@@ -15,11 +15,9 @@
 
   
   
-  
 ### Association  
-- has_many :product listing functi ons  
-- has_many :product purchase functions  
-
+- has_many :product_listing_functions  
+- has_one :buyer_history
 
 ## product_listing_function  
 
@@ -28,10 +26,10 @@
 | name          | string      | null: false |  
 | description   | text      | null: false |  
 | category_id   | integer     | null: false, foreign_key: true |  
-| condition_id  | integer     | null: false, foreign_key: true |  
-| charges_id    | integer     | null: false, foreign_key: true |  
-| area_id       | integer     | null: false, foreign_key: true |  
-| ship_id       | integer     | null: false, foreign_key: true |  
+| condition_id  | integer     | null: false |  
+| charges_id    | integer     | null: false |  
+| area_id       | integer     | null: false |  
+| ship_id       | integer     | null: false |  
 | price         | integer     | null: false |  
 | user_id       | integer     | null: false, foreign_key: true |  
 
@@ -40,7 +38,7 @@
 
 ### Association  
 - belongs_to :user  
-- has_many :product purchase functions  
+- has_one :buyer_history  
 
 
 ## product purchase function  
@@ -53,13 +51,13 @@
 | address       | string   | null: false    |  
 | building_name | string   | null: false    |  
 | phone_number  | string   | null: false    |  
-| user_id       | integer  | null: false, foreign_key: true |  
+| buyer_history_id | integer  | null: false, foreign_key: true |  
 
 
   
   
 ### Association  
-- has_one Buyer_history  
+- belongs_to :buyer_history  
 
 
 ## buyer_history
@@ -72,4 +70,4 @@
   
   
 ### Association  
-- belongs_to :product purchase function  
+- has_one :product_purchase_function  
