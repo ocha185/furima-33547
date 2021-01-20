@@ -31,7 +31,7 @@
 | prefecture_id | integer     | null: false |  
 | ship_id       | integer     | null: false |  
 | price         | integer     | null: false |  
-| user_id       | integer     | null: false, foreign_key: true |  
+| user          | references  | null: false, foreign_key: true |  
 
 
 
@@ -51,7 +51,7 @@
 | address       | string   | null: false    |  
 | building_name | string   |     |  
 | phone_number  | string   | null: false    |  
-| buyer_history_id | integer  | null: false, foreign_key: true |  
+| buyer_history | references | null: false, foreign_key: true |  
 
 
   
