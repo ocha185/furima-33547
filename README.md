@@ -64,8 +64,8 @@
 
 | Column ｜ Type | Options |  
 | --------- | ------ | ------------ |  
-| user_id    | integer  | null: false, foreign_key: true |  
-| product_id | integer  | null: false, foreign_key: true |  
+| user   | references  | null: false, foreign_key: true |  
+| product | references  | null: false, foreign_key: true |  
   
   
   
