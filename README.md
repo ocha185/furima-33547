@@ -1,36 +1,40 @@
-# furimaアプリのER図
+# furimaアプリのER図  
 
-| user                                  |  
-| ---                                   |  
-| nickname (string型 NOT NULL)          |  
-| email (string型 NOT NULL)             |  
-| encrypted_password (string型 NOT NULL)|  
-| first_name (string型 NOT NULL)        |  
-| last_name (string型 NOT NULL          |  
-| first_name_kana (string型 NOT NULL)   |  
-| last_name_kana (string型 NOT NULL)    |  
-| birth_day (date型_NOT NULL)           |  
+## user  
+
+| Column ｜ Type | Options |  
+| ---------- | ------ | ---------- |  
+| nickname           | string    | null: false    |  
+| email              | string    | null: false    |  
+| encrypted_password | string    | null: false    |  
+| first_name         | string    | null: false    |  
+| last_name          | string    | null: false    |  
+| first_name_kana    | string    | null: false    |  
+| last_name_kana     | string    | null: false    |  
+| birth_day          | date      | null: false    |  
 
   
   
   
 ### Association  
-- has_many :product listing functions  
+- has_many :product listing functi ons  
 - has_many :product purchase functions  
 
 
+## product_listing_function  
 
-| product listing function                 |  
-| ---                                      |  
-| name (string型 NOT NULL)                 |  
-| description (text型 NOT NULL)            |  
-| category_id (integer型 NOT NULL)         |  
-| condition_id (integer型 NOT NULL)        |  
-| charges_id (integer型 NOT NULL)          |  
-| area_id (integer型 NOT NULL)             |  
-| ship_id (integer型 NOT NULL              |  
-| price (integer型 NOT NULL)               |  
-| user_id (integer型 NOT NULL)             |  
+| Column ｜ Type | Options |  
+| --------- | ------ | ----------- |  
+| name          | string      | null: false |  
+| description   | text      | null: false |  
+| category_id   | integer     | null: false, foreign_key: true |  
+| condition_id  | integer     | null: false, foreign_key: true |  
+| charges_id    | integer     | null: false, foreign_key: true |  
+| area_id       | integer     | null: false, foreign_key: true |  
+| ship_id       | integer     | null: false, foreign_key: true |  
+| price         | integer     | null: false |  
+| user_id       | integer     | null: false, foreign_key: true |  
+
 
 
 
@@ -39,28 +43,31 @@
 - has_many :product purchase functions  
 
 
+## product purchase function  
 
-| product purchase function              |  
-| ---                                    |  
-| post_code (string型 NOT NULL)          |  
-| prefecture_id (integer型 NOT NULL)     |  
-| city (string型 NOT NULL)               |  
-| address (string型 NOT NULL)            |  
-| building_name (string型)               |  
-| phone_number (string型 NOT NULL)       |  
-| user_id (integer型 NOT NULL)           |  
+| Column ｜ Type | Options |  
+| --------- | ------ | ----------- |  
+| post_code     | string   | null: false    |  
+| prefecture_id | integer  | null: false, foreign_key: true |  
+| city          | string   | null: false    |  
+| address       | string   | null: false    |  
+| building_name | string   | null: false    |  
+| phone_number  | string   | null: false    |  
+| user_id       | integer  | null: false, foreign_key: true |  
 
-  
+
   
   
 ### Association  
 - has_one Buyer_history  
-  
 
-| buyer_history                          |  
-|---                                     |  
-|  user_id(integer型 NOT NULL)           |  
-| product_id(integer型 NOT NULL)         |  
+
+## buyer_history
+
+| Column ｜ Type | Options |  
+| --------- | ------ | ------------ |  
+| user_id    | integer  | null: false, foreign_key: true |  
+| product_id | integer  | null: false, foreign_key: true |  
   
   
   
