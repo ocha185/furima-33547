@@ -22,7 +22,6 @@
 
 | product listing function                 |  
 | ---                                      |  
-| image (ActiveStorageで実装)               |  
 | name (string型 NOT NULL)                 |  
 | description (text型 NOT NULL)            |  
 | category_id (integer型 NOT NULL)         |  
@@ -55,8 +54,6 @@
   
   
 ### Association  
-- belongs_to :user  
-- has_many :product listing functions  
 - has_one Buyer_history  
   
 
@@ -68,5 +65,4 @@
   
   
 ### Association  
-- belongs_to :user
 - belongs_to :product purchase function  
