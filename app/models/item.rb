@@ -14,7 +14,7 @@ class Item < ApplicationRecord
     validates :description
     validates :category
     validates :condition
-    validates :charges
+    validates :charge
     validates :prefecture
     validates :ship
     validates :price, numericality:{only_integer:true,greater_than_or_equal_to:300,less_than_or_equal_to:9999999}
@@ -23,4 +23,9 @@ class Item < ApplicationRecord
 
   has_one_attached :image
   belongs_to :user
+  belongs_to :category
+  belongs_to :condition
+  belongs_to :charge
+  belongs_to :prefecture
+  belongs_to :ship
 end

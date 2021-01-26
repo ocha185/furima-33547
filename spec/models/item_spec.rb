@@ -36,9 +36,9 @@ RSpec.describe Item, type: :model do
           expect(@item.errors.full_messages).to include("Condition is not a number", "Condition can't be blank")
         end
         it "配送料の負担についての情報が必須であること" do
-          @item.charges = nil
+          @item.charge = nil
           @item.valid?
-          expect(@item.errors.full_messages).to include("Charges is not a number", "Charges can't be blank")
+          expect(@item.errors.full_messages).to include("Charge is not a number", "Charge can't be blank")
         end
         it "発送元の地域についての情報が必須であること" do
           @item.prefecture = nil
