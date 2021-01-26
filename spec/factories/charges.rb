@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :category_id do
+  factory :charge do
     
   end
 end

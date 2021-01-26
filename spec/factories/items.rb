@@ -2,11 +2,11 @@ FactoryBot.define do
   factory :item do
     name {"test"}
     description {Faker::Lorem.sentence}
-    category_id {2}
-    condition_id {2}
-    charges_id {2}
-    prefecture_id {2}
-    ship_id {2}
+    category {2}
+    condition {2}
+    charges {2}
+    prefecture {2}
+    ship {2}
     price {"1000"}
 
 
