@@ -1,8 +1,8 @@
 class UserPurchaseController < ApplicationController
-  before_action :move_to_signed_in
+  before_action :authenticate_user!
+  before_action :set_item, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
     @user_purchase = UserPurchase.new
     if @item.buyer_history.present? || current_user == @item.user
       redirect_to root_path
@@ -11,7 +11,6 @@ class UserPurchaseController < ApplicationController
 
   def create
     @user_purchase = UserPurchase.new(purchase_params)
-    @item = Item.find(params[:item_id])
     if @user_purchase.valid?
       pay_item
       @user_purchase.save
@@ -34,9 +33,8 @@ class UserPurchaseController < ApplicationController
         currency: 'jpy'
       )
   end
-  def move_to_signed_in
-    unless user_signed_in?
-      redirect_to  '/users/sign_in'
-    end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 end
