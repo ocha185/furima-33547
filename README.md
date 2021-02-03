@@ -17,7 +17,7 @@
   
 ### Association  
 - has_many :product_listing_functions  
-- has_many :buyer_history
+- has_many :buyer_history  
 
 ## product_listing_function  
 
@@ -65,7 +65,7 @@
 | Column ｜ Type | Options |  
 | --------- | ------ | ------------ |  
 | user   | references  | null: false, foreign_key: true |  
-| product | references  | null: false, foreign_key: true |  
+| item | references  | null: false, foreign_key: true |  
   
   
   
