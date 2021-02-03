@@ -55,6 +55,16 @@ RSpec.describe UserPurchase, type: :model do
         @user_purchase.valid?
         expect(@user_purchase.errors.full_messages).to include("Phone number is invalid")
       end
+      it "電話番号は12桁以上では登録できないこと" do
+        @user_purchase.phone_number = '090123456789'
+        @user_purchase.valid?
+        expect(@user_purchase.errors.full_messages).to include("Phone number is invalid")
+      end
+      it "電話番号は英数混合では登録できないこと" do
+        @user_purchase.phone_number = '090aaaa1234'
+        @user_purchase.valid?
+        expect(@user_purchase.errors.full_messages).to include("Phone number is invalid")
+      end
       it "tokenが空では登録できないこと" do
         @user_purchase.token = nil
         @user_purchase.valid?
