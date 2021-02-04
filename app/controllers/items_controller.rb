@@ -23,7 +23,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    unless current_user == @item.user
+    if @item.buyer_history == nil && current_user == @item.user
+      render :edit
+    elsif @item.buyer_history.present? || @item.user
+      redirect_to root_path
+    else
       redirect_to action: :index
     end
   end
